@@ -1,3 +1,6 @@
+const displayBooksDiv = document.getElementById('display-books');
+const showResults = document.getElementById('show-results');
+
 const errorDiv = document.getElementById('error');
 errorDiv.style.display = 'none';
 
@@ -6,7 +9,11 @@ const searchBooks = async () => {
     const inputField = document.getElementById('input-field');
     const inputFieldValue = inputField.value;
     // console.log(inputFieldValue);
+
+    // clear content
     inputField.value = '';
+    showResults.textContent = '';
+    displayBooksDiv.textContent = '';
 
     if (inputFieldValue === '') {
         displayError('block');
@@ -27,12 +34,6 @@ const searchBooks = async () => {
 // display books details
 const showBooks = books => {
     // console.log(books.length);
-
-    const displayBooksDiv = document.getElementById('display-books');
-    const showResults = document.getElementById('show-results');
-
-    // clear content
-    displayBooksDiv.textContent = '';
 
     books.forEach(book => {
         // console.log(book.length);
