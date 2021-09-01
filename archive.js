@@ -1,6 +1,7 @@
 const errorDiv = document.getElementById('error');
 errorDiv.style.display = 'none';
 
+// load books
 const searchBooks = async () => {
     const inputField = document.getElementById('input-field');
     const inputFieldValue = inputField.value;
@@ -22,22 +23,34 @@ const searchBooks = async () => {
     }
 };
 
+
+// display books details
 const showBooks = books => {
-    // console.log(books);
+    // console.log(books.length);
 
     const displayBooksDiv = document.getElementById('display-books');
+    const showResults = document.getElementById('show-results');
+    const searchBooksLength = books.filter(book => book.hasOwnProperty('cover_i') === true).length;
+    // console.log(booksFilter);
+    showResults.innerHTML = `
+       <h5 class='fw-bold text-center'>Founded Results: ${searchBooksLength}</h5>
+    `;
+
+    // clear content
     displayBooksDiv.textContent = '';
 
     books.forEach(book => {
-        console.log(book);
+        // console.log(book.length);
 
         const div = document.createElement('div');
 
+
         if (book.hasOwnProperty('cover_i') === true) {
+
             div.classList.add('col');
             div.innerHTML = `
-                
-                <div class="card h-100">
+
+                <div onclick="singleBookDetails()" class="card h-100">
                     <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="...">
                     <div class="card-body text-center">
                         <h5 class="card-title"><span class="fw-bold">Book:</span> ${book.title_suggest}</h5>
@@ -50,8 +63,9 @@ const showBooks = books => {
             displayBooksDiv.appendChild(div);
         }
     });
+
     displayError('none');
-}
+};
 
 // error function
 const displayError = error => {
