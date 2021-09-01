@@ -11,7 +11,7 @@ const searchBooks = async () => {
     if (inputFieldValue === '') {
         displayError('block');
     } else {
-        const url = `http://openlibrary.org/search.json?q=${inputFieldValue}`;
+        const url = `https://openlibrary.org/search.json?q=${inputFieldValue}`;
 
         try {
             const res = await fetch(url);
