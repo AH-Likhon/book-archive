@@ -30,17 +30,16 @@ const showBooks = books => {
 
     const displayBooksDiv = document.getElementById('display-books');
     const showResults = document.getElementById('show-results');
-    const searchBooksLength = books.filter(book => book.hasOwnProperty('cover_i') === true).length;
-    // console.log(booksFilter);
-    showResults.innerHTML = `
-       <h5 class='fw-bold text-center'>Founded Results: ${searchBooksLength}</h5>
-    `;
 
     // clear content
     displayBooksDiv.textContent = '';
 
     books.forEach(book => {
         // console.log(book.length);
+        const searchBooksLength = books.filter(book => book.hasOwnProperty('cover_i') === true).length;
+        showResults.innerHTML = `
+           <h5 class='fw-bold text-center'>Founded Results: ${searchBooksLength}</h5>
+        `;
 
         const div = document.createElement('div');
 
