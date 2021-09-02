@@ -36,7 +36,7 @@ const showBooks = books => {
     // console.log(books.length);
 
     books.forEach(book => {
-        console.log(book);
+        // console.log(book);
         const searchBooksLength = books.filter(book => book.hasOwnProperty('cover_i') === true).length;
         showResults.innerHTML = `
            <h5 class='fw-bold text-center'>Founded Results: ${searchBooksLength}</h5>
