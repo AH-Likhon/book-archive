@@ -42,15 +42,14 @@ const showBooks = books => {
            <h5 class='fw-bold text-center'>Founded Results: ${searchBooksLength}</h5>
         `;
 
-        const div = document.createElement('div');
-
 
         if (book.hasOwnProperty('cover_i') === true) {
 
+            const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
 
-                <div onclick="singleBookDetails()" class="card h-100">
+                <div class="card h-100">
                     <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="...">
                     <div class="card-body text-center">
                         <h5 class="card-title"><span class="fw-bold">Book:</span> ${book.title_suggest}</h5>
